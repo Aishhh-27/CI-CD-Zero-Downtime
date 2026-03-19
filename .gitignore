@@ -1,0 +1,6 @@
+*.iso
+*.exe
+*.log
+*.zip
+*.tar
+__pycache__/

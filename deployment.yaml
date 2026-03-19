@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zero-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: zero-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: zero-app
+    spec:
+      containers:
+      - name: zero-app
+        image: zero-app:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
